@@ -1,0 +1,24 @@
+$iconSpritePath: image-path('glyphicons-halflings.png');
+$iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
+
+$navbarBackground: #555;
+$navbarBackgroundHighlight: #888;
+$navbarText: #FFF;
+$navbarLinkColor: #FFF;
+
+$bodyBackground: #333;
+$textColor: #FFF;
+
+$tableBackgroundHover: #555;
+
+@import "bootstrap";
+
+body { padding-top: 60px; }
+
+@import "bootstrap-responsive";
+
+// Override values that are
+// hard coded by boostrap.
+.navbar .brand {
+  color: #EEE;
+}
