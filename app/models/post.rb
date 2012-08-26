@@ -7,8 +7,14 @@ class Post
   field :tags, type: Array
   field :published_at, type: Time
 
+  attr_accessible :title, :body, :tag_list, :parsable_published_at
+
   def tag_list
     Array(tags).join(" ")
+  end
+
+  def tag_list=(list)
+    self.tags = list.split
   end
 
   def body_summary

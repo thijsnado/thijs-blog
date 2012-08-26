@@ -8,6 +8,7 @@ gem 'rails', '3.2.8'
 
 gem 'mongoid'
 gem 'haml'
+gem 'chronic'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -21,14 +22,13 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
-
 gem 'jquery-rails'
 
 gem 'quiet_assets', :group => :development
-
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'timecop'
 end
 
 # To use ActiveModel has_secure_password
