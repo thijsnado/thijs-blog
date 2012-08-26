@@ -17,6 +17,14 @@ class Post
     self.tags = list.split
   end
 
+  def published_at_parsible
+    published_at
+  end
+
+  def published_at_parsible=(time_string)
+    self.published_at = Chronic.parse(time_string)
+  end
+
   def body_summary
     String(body).slice(0..50) + "..."
   end
