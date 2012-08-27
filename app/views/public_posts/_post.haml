@@ -1,0 +1,5 @@
+%div.row
+  %div.span8
+    %h2
+      = link_to post.title, post_by_slug_path(post.slug)
+    = markdown_to_html post.body

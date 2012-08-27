@@ -43,4 +43,24 @@ describe Post do
       post.published_at.should be_nil
     end
   end
+
+  describe '#save_slug' do
+    it "converts all non-alphanumeric characters to - characters, upto one dash character in a row" do
+      post = FactoryGirl.build_stubbed(:post, title: "the rain in spain, stays mainly$@in the plain123")
+      post.send(:set_slug)
+      post.slug.should == "the-rain-in-spain-stays-mainly-in-the-plain123"
+    end
+
+    it "should strip whitespec" do
+      post = FactoryGirl.build_stubbed(:post, title: "    hello ")
+      post.send(:set_slug)
+      post.slug.should == "hello"
+    end
+
+    it "should allow you to set slug manually" do
+      post = FactoryGirl.build_stubbed(:post, title: "foo bar", slug: "hardy har")
+      post.send(:set_slug)
+      post.slug.should == "hardy-har"
+    end
+  end
 end

@@ -9,6 +9,9 @@ gem 'rails', '3.2.8'
 gem 'mongoid'
 gem 'haml'
 gem 'chronic'
+gem 'redcarpet'
+gem 'pygments.rb'
+gem 'kaminari'
 
 # Gems used only for assets and not required
 # in production environments by default.

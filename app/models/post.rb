@@ -3,9 +3,19 @@ class Post
   include Mongoid::MultiParameterAttributes
 
   field :title, type: String
+  field :slug, type: String
   field :body, type: String
   field :tags, type: Array
   field :published_at, type: Time
+
+  with_options presence: true do |required|
+    required.validates :title
+    required.validates :body
+  end
+
+  validates :slug, uniqueness: true
+
+  before_save :set_slug
 
   attr_accessible :title, :body, :tag_list, :parsable_published_at
 
@@ -25,7 +35,10 @@ class Post
     self.published_at = Chronic.parse(time_string)
   end
 
-  def body_summary
-    String(body).slice(0..50) + "..."
+  private
+
+  def set_slug
+    sluggable = slug.present? ? slug : title
+    self.slug = sluggable.to_s.strip.gsub(/[^a-zA-Z0-9]+/, '-')
   end
 end
