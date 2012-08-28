@@ -17,7 +17,7 @@ class Post
 
   before_save :set_slug
 
-  attr_accessible :title, :body, :tag_list, :parsable_published_at
+  attr_accessible :title, :body, :tag_list, :published_at_parsible
 
   def tag_list
     Array(tags).join(" ")
