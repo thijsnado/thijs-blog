@@ -25,4 +25,11 @@ body { padding-top: 60px; }
 
 pre {
   background-color: #555;
+  word-wrap: normal;
+}
+
+@media (max-width: 480px) {
+  pre {
+    whitespace: nowrap;
+  }
 }
