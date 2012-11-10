@@ -1,5 +1,5 @@
 ThijsBlog::Application.routes.draw do
-  scope 'admin' do
+  scope '/admin' do
     resources :posts, controller: 'admin/posts'
   end
 

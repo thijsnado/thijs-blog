@@ -10,7 +10,7 @@ gem 'mongoid'
 gem 'haml'
 gem 'chronic'
 gem 'redcarpet'
-gem 'pygments.rb'
+gem 'pygments.rb', '0.3.2'
 gem 'kaminari'
 
 # Gems used only for assets and not required
