@@ -4,4 +4,4 @@
     %br
     %small
       = '[ ' + post.published_at.strftime('%Y-%m-%d %I:%M %p') + ' ]'
-  = markdown_to_html post.body
+  = post.body_html.html_safe
