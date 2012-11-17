@@ -12,6 +12,9 @@
         %div.container
           = link_to "Thijs Blog", root_path, class: "brand"
     %div.container
-      %div.row
-        %div.span12
-          = yield
+      - if container = yield(:container) and container.present?
+        = container
+      - else
+        %div.row
+          %div.span12
+            = yield
