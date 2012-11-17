@@ -1,3 +1,11 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+class PostPreviewer
+  @showPreviewFor: (options) ->
+    new this(options)
+
+  constructor: (options) ->
+    console.log options
+    @form = options.form
+    @preview = options.preview
+
+$(document).ready ->
+  PostPreviewer.showPreviewFor(form: 'form', preview: '.preview')

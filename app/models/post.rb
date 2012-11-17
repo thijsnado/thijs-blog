@@ -1,15 +1,15 @@
-require 'html_with_pygments'
+require 'markdown_to_html'
 
 class Post
   include Mongoid::Document
   include Mongoid::MultiParameterAttributes
 
-  field :title, type: String
-  field :slug, type: String
-  field :body, type: String
-  field :body_html, type: String
-  field :tags, type: Array
-  field :published_at, type: Time
+  field :title,         type: String
+  field :slug,          type: String
+  field :body,          type: String
+  field :body_html,     type: String
+  field :tags,          type: Array
+  field :published_at,  type: Time
 
   with_options presence: true do |required|
     required.validates :title
