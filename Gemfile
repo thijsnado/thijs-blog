@@ -34,6 +34,7 @@ group :development, :test do
   gem 'timecop'
   gem 'spork-rails'
   gem 'capybara'
+  gem 'jasminerice'
 end
 
 # To use ActiveModel has_secure_password
