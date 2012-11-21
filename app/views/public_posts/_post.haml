@@ -4,4 +4,4 @@
     %br
     %small
       = '[ ' + post.published_at.strftime('%Y-%m-%d %I:%M %p') + ' ]'
-  = post.body_html.html_safe
+  = sanitize post.body_html

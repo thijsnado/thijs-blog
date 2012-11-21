@@ -1,3 +1,5 @@
+require 'markdown_to_html'
+
 class PublicPostsController < ApplicationController
 
   def index
@@ -6,5 +8,12 @@ class PublicPostsController < ApplicationController
 
   def show
     @post = Post.find_by(slug: params[:slug])
+  end
+
+  def preview
+    html = MarkdownToHTML.markdown_to_html(params[:text])
+    post = OpenStruct.new(body_html: html)
+
+    render text: post.body_html
   end
 end

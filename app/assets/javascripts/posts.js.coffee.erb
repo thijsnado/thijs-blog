@@ -1,0 +1,6 @@
+$(document).ready ->
+  if $('#text').length == 1
+    PostPreviewer.showPreviewFor
+      text: '#text'
+      preview: '#preview'
+      url: $('#text').attr('data-preview_path')
