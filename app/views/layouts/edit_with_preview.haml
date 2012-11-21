@@ -1,8 +1,8 @@
 - content_for :container do
-  %div.row
-    %div.span6
+  %div.row{ style: 'height: 300px' }
+    %div.span6.left{ style: 'height: 600px; overflow: auto' }
       = yield
-    %div.span6
+    %div.span6.right{ style: 'height: 600px; overflow: auto' }
       %div#preview
 
 = render file: 'layouts/application'

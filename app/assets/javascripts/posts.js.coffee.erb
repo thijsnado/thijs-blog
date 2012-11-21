@@ -7,10 +7,9 @@ showPreview = ->
 $(document).ready ->
   if $('#text').length == 1
     showPreview()
-  lastSearchedAt = (new Date()).getTime()
   typeWatchOptions =
-    callback: ->
-      showPreview()
-    wait: 500
+    callback: showPreview
+    wait: 250
+    captureLength: 0
   $('#text').typeWatch typeWatchOptions
 
