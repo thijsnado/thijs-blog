@@ -1,6 +1,16 @@
+showPreview = ->
+  PostPreviewer.showPreviewFor
+    text: '#text'
+    preview: '#preview'
+    url: $('#text').attr('data-preview_path')
+
 $(document).ready ->
   if $('#text').length == 1
-    PostPreviewer.showPreviewFor
-      text: '#text'
-      preview: '#preview'
-      url: $('#text').attr('data-preview_path')
+    showPreview()
+  lastSearchedAt = (new Date()).getTime()
+  typeWatchOptions =
+    callback: ->
+      showPreview()
+    wait: 500
+  $('#text').typeWatch typeWatchOptions
+
