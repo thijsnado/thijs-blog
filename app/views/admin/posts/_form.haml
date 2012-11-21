@@ -1,0 +1,27 @@
+= form_for(@post) do |f|
+  - if @post.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@post.errors.count, "error")
+        prohibited this post from being saved:
+      %ul
+        - @post.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :title
+    %br/
+    = f.text_field :title
+  .field
+    = f.label :body
+    %br/
+    = f.text_area :body, class: "span6", id: 'text', "data-preview_path" => preview_post_path
+  .field
+    = f.label :tag_list
+    %br/
+    = f.text_field :tag_list
+  .field
+    = f.label :published_at_parsible, "Published At"
+    %br/
+    = f.text_field :published_at_parsible
+  .actions
+    = f.submit

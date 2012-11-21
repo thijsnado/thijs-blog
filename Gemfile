@@ -8,6 +8,8 @@ gem 'rails', '3.2.8'
 
 gem 'mongoid'
 gem 'haml'
+gem 'hpricot'
+gem 'ruby_parser'
 gem 'chronic'
 gem 'redcarpet'
 gem 'pygments.rb', '0.3.2'
