@@ -12,15 +12,11 @@ class Admin::PostsController < AdminController
   # GET /posts/new
   def new
     @post = Post.new
-
-    render layout: 'edit_with_preview'
   end
 
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
-
-    render layout: 'edit_with_preview'
   end
 
   # POST /posts

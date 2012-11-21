@@ -7,21 +7,27 @@
       %ul
         - @post.errors.full_messages.each do |msg|
           %li= msg
-  .field
-    = f.label :title
-    %br/
-    = f.text_field :title
-  .field
-    = f.label :body
-    %br/
-    = f.text_area :body, class: "span6", id: 'text', "data-preview_path" => preview_post_path
-  .field
-    = f.label :tag_list
-    %br/
-    = f.text_field :tag_list
-  .field
-    = f.label :published_at_parsible, "Published At"
-    %br/
-    = f.text_field :published_at_parsible
+  .field.row
+    .span6
+      = f.label :title
+      %br/
+      = f.text_field :title
+  .field.row
+    .span6
+      = f.label :body
+  .field.row
+    .span6
+      = f.text_area :body, class: "span6 scrollableField", id: 'text', "data-preview_path" => preview_post_path
+    .span6.scrollableField#preview
+  .field.row
+    .span6
+      = f.label :tag_list
+      %br/
+      = f.text_field :tag_list
+  .field.row
+    .span6
+      = f.label :published_at_parsible, "Published At"
+      %br/
+      = f.text_field :published_at_parsible
   .actions
     = f.submit
