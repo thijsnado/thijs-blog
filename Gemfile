@@ -26,6 +26,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 gem 'jquery-rails'
+gem 'turbolinks'
+gem 'jquery-turbolinks'
 
 gem 'quiet_assets', :group => :development
 group :development, :test do

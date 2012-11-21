@@ -3,7 +3,10 @@ require 'markdown_to_html'
 class PublicPostsController < ApplicationController
 
   def index
-    @posts = Post.where(:published_at.lte => Time.now).desc(:published_at)
+    @posts = Post.where(:published_at.lte => Time.now)
+      .desc(:published_at)
+      .page(0)
+      .per(3)
   end
 
   def show
