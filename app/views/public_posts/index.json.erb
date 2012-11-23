@@ -1,0 +1,4 @@
+{
+"html": <%= render(partial: 'post.haml', collection: @posts).to_json.html_safe %>,
+"url": "<%= root_path(page: @next_page) %>"
+}

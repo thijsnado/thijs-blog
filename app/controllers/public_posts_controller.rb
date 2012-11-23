@@ -5,8 +5,14 @@ class PublicPostsController < ApplicationController
   def index
     @posts = Post.where(:published_at.lte => Time.now)
       .desc(:published_at)
-      .page(0)
+      .page(params[:page] || 1)
       .per(3)
+
+    @next_page = (params[:page] || 1).to_i + 1
+
+    if request.xhr?
+      render 'index.json.erb', layout: false
+    end
   end
 
   def show

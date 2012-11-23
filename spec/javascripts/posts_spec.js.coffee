@@ -22,6 +22,7 @@ describe "PostPreviewer", ->
         url: 'derp'
         data: { text: 'derp' }
         dataType: 'text'
+        type: 'post'
         success: jasmine.any(Function)
 
     it "should send data from text option to url option, then display in preview option", ->

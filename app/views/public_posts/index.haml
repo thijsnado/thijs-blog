@@ -1,2 +1,5 @@
 - @posts.each do |post|
   = render partial: 'post', object: post
+-# .pagination{ "data-start_url" => root_path(page: @next_page) }
+.row
+  = paginate @posts
