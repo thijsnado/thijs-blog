@@ -13,9 +13,10 @@ $(document).ready ->
     captureLength: 0
   $('#text').typeWatch typeWatchOptions
 
-# jQuery ->
-#   marker = $('.pagination')
-#   if marker.length > 0
-#     url = marker.attr('data-start_url')
-#     scroller = new InfiniteScroll(url: url)
-#     scroller.setObserver()
+jQuery ->
+  marker = $('#pagination_marker')
+  if marker.length > 0
+    $('#pagination_links').remove()
+    url = marker.attr('data-start_url')
+    scroller = new InfiniteScroll(url: url, paginationMarker: marker)
+    scroller.setObserver()
