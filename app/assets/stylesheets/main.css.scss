@@ -7,3 +7,9 @@
     padding: 10px;
   }
 }
+#pagination_marker {
+  width: 33px;
+  height: 33px;
+  background-image:image-url('loading.gif');
+  background-repeat: no-repeat;
+}
