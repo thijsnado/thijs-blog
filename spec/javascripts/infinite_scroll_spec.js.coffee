@@ -2,6 +2,9 @@ testResponses =
   success:
     status: 200
     responseText: "{\"html\":\"<p class='derp'>derp</p>\", \"url\": \"hello\"}"
+  lastPage:
+    status: 200
+    responseText: "{\"html\":\"<p class='derp'>derp</p>\", \"url\": \"hello\", \"lastPage\": true}"
 
 describe "InfiniteScroll", ->
   infiniteScroller = null
@@ -82,3 +85,17 @@ describe "InfiniteScroll", ->
         type: 'get'
         dataType: 'text'
         success: jasmine.any(Function)
+
+   it "turns of listener and hides spinner if last_page is set to true", ->
+     spyOn(innerPaginationContainer, 'unbind')
+     jasmine.Ajax.useMock()
+
+     infiniteScroller.sendRequest()
+
+     request = mostRecentAjaxRequest()
+     request.response(testResponses.lastPage)
+
+     expect(paginationMarker).not.toBeVisible()
+     expect(innerPaginationContainer.unbind).toHaveBeenCalledWith('scroll.infinite_scroll')
+
+

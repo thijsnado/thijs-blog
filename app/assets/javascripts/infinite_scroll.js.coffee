@@ -7,7 +7,7 @@ class @InfiniteScroll
     @processing = false
 
   setObserver: ->
-    @innerPaginationContainer.scroll(@checkScroll.bind(this))
+    @innerPaginationContainer.bind('scroll.infinite_scroll', @checkScroll.bind(this))
 
   checkScroll: ->
     if @innerPaginationContainer.scrollTop() > @outerPaginationContainer.height() - @innerPaginationContainer.height() - 50 && !@processing
@@ -25,6 +25,9 @@ class @InfiniteScroll
         @processing = false
         $(response.html).insertBefore(@paginationMarker)
         @url = response.url
+        if response.lastPage
+          @paginationMarker.hide()
+          @innerPaginationContainer.unbind('scroll.infinite_scroll')
 
 
 

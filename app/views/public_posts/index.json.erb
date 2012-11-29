@@ -1,4 +1,8 @@
-{
-"html": <%= render(partial: 'post', format: :html, collection: @posts).to_json.html_safe %>,
-"url": "<%= root_path(page: @next_page) %>"
-}
+<%
+  values = {
+    html: render(partial: 'post', format: :html, collection: @posts),
+    url: root_path(page: @next_page)
+  }
+  values[:lastPage] = true if @next_page > @posts.num_pages
+%>
+<%= values.to_json.html_safe %>
