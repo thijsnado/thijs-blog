@@ -11,7 +11,7 @@ class PublicPostsController < ApplicationController
     @next_page = (params[:page] || 1).to_i + 1
 
     if request.xhr?
-      render 'index.json.erb', layout: false
+      render 'index', layout: false, format: :json
     end
   end
 
